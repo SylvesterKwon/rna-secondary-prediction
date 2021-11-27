@@ -1,2 +1,4 @@
 # rna-secondary-prediction
-RNA secondary structure prediction project
+This is RNA secondary structure prediction project.
+Author: Dohyun Kwon
+
