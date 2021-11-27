@@ -67,6 +67,7 @@ void lcs(int s, int e, vector<vector<int>>& match){ // Time complexity - O(n^2)
 }
 
 void get_lcs_element(int s, int e, int l, int r){
+	//cout<<s<<" "<<e<<" "<<l<<" "<<r<<"\n";
 	while(l&&r){
 		if(lcs_restore[s][e][l][r]==0){ // (i-1, j) -> (i, j)
 			l-=1;
@@ -76,6 +77,7 @@ void get_lcs_element(int s, int e, int l, int r){
 		}
 		else{ // (i-1, j-1) + match -> (i, j)
 			restored.push_back({s+l-1,e-r+1});
+			//cout<<s+l-1<<"-"<<e-r+1<<"\n";
 			l-=1; r-=1;
 		}
 	}
@@ -109,9 +111,7 @@ string get_dot_braket_notation(){
 	
 	sort(restored.begin(),restored.end());
 	for(int i=0;i<(int)restored.size();i++){
-		auto [l,r]=restored[i];
-		l-=1;
-		r-=1;		
+		auto [l,r]=restored[i];	
 		bool pk=false;
 		for(int j=0;j<i;j++){
 			auto [cl,cr]=restored[j];
@@ -121,12 +121,12 @@ string get_dot_braket_notation(){
 			}
 		}
 		if(!pk){
-			ret[l]='(';
-			ret[r]=')';
+			ret[l-1]='(';
+			ret[r-1]=')';
 		}
 		else{
-			ret[l]='{';
-			ret[r]='}';
+			ret[l-1]='[';
+			ret[r-1]=']';
 		}
 	}
 	return ret;
@@ -213,11 +213,15 @@ int solve(string& seq){
 
 int main() {
 	string seq; cin>>seq; // input RNA sequence with standard input
+	clock_t start, finish;
+	start=clock();
 	seq_len=(int)seq.length();
 	seq=" "+seq;
 
 	int mfe=solve(seq); // calculate minimum free energy (MFE)
-
+	finish=clock();
+	double duration = (double)(finish - start)/CLOCKS_PER_SEC;
+	cout<<duration<<" sec\n";
 	cout<<" [ Input sequence ]\n";
 	cout<<"RNA sequence:"<<seq<<"\n";
 	cout<<"Length of sequence: "<<seq_len<<"\n";

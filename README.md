@@ -1,6 +1,8 @@
 # RNA Secondary structure prediction
 This program calculates the structure of RNA's secondary structure that has maximum matching score and satisfy specific conditions.
 
+Written in C++
+
 ## Conditions
 1. Watson-Crick pair and wobble pair is both allowed. If you want to set an arbitrary matching score, modify the argument parameters.
 1. Hairpin is allowed.
@@ -12,5 +14,7 @@ This program calculates the structure of RNA's secondary structure that has maxi
 
 ## Performance
 TIME COMPLEXITY: $O(N^5)$
+
 SPACE COMPLEXITY: $O(N^4)$
 
+## Set
