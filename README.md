@@ -13,8 +13,8 @@ Written in C++
 1. Consider only when Hairpin and Pseudoknot are connected in series. This means that the structure surrounding the existing structure (nested structure) is not considered. (If you want this feature, you can modify it)
 
 ## Performance
-TIME COMPLEXITY: $O(N^5)$
+- TIME COMPLEXITY: $O(N^5)$
+- SPACE COMPLEXITY: $O(N^4)$
 
-SPACE COMPLEXITY: $O(N^4)$
-
-## Set
+## See also...
+- AJOU SOFTCON (poster & videos): https://softcon.ajou.ac.kr/works/works.asp?uid=518&category=M
